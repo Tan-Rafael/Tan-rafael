@@ -1,0 +1,85 @@
+{
+  "$schema": "./profile.schema.json",
+  "profile": {
+    "name": "Rafael Hugo Vivaldi",
+    "username": "rafaelhugovivaldi19-star",
+    "headline": "AI Systems Engineer",
+    "affiliation": "Anlytix AI",
+    "location": "Indonesia",
+    "status": "Building AI & Legacy Systems",
+    "about": [
+      "I build AI software and modern digital systems.",
+      "My work focuses on Anlytix AI and digital legacy platforms."
+    ]
+  },
+  "research": {
+    "primary": "AI & Enterprise Systems",
+    "direction": "Scalable AI Infrastructure",
+    "themes": "AI / Enterprise / Analytics",
+    "narrative": "I build AI systems, autonomous agents, analytics, and secure digital infrastructure."
+  },
+  "focus": [
+    {
+      "name": "AI Agents",
+      "description": "Building autonomous systems for reasoning, planning, and tool use."
+    },
+    {
+      "name": "Financial Analytics",
+      "description": "Building AI analytics for global financial markets."
+    },
+    {
+      "name": "Enterprise Software",
+      "description": "Building scalable and secure enterprise applications."
+    }
+  ],
+  "projects": [
+    {
+      "name": "Analisis-Asset",
+      "url": "https://github.com/rafaelhugovivaldi19-star/Analisis-Asset",
+      "homepage": "",
+      "focus": "AI Analytics",
+      "summary": "AI analytics for financial data and autonomous workflows.",
+      "heroLabel": "AI Core"
+    },
+    {
+      "name": "Anlytix AI",
+      "url": "https://github.com/rafaelhugovivaldi19-star/Anlytix",
+      "homepage": "",
+      "focus": "Financial AI",
+      "summary": "AI-powered analytics for global financial markets.",
+      "heroLabel": "Flagship"
+    }
+  ],
+  "techStack": [
+    "JavaScript",
+    "TypeScript",
+    "HTML5",
+    "CSS3",
+    "Python",
+    "Laravel",
+    "PHP",
+    "Node.js",
+    "REST API",
+    "SQL",
+    "Git",
+    "Docker",
+    "AI Agents"
+  ],
+  "links": [
+    {
+      "label": "GitHub",
+      "value": "rafaelhugovivaldi19-star",
+      "url": "https://github.com/rafaelhugovivaldi19-star",
+      "logo": "github",
+      "color": "0B1220"
+    }
+  ],
+  "activity": {
+    "enabled": true,
+    "limit": 6
+  },
+  "appearance": {
+    "palette": "signal"
+  },
+  "footer": "Building AI systems and digital infrastructure."
+}
