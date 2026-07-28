@@ -33,6 +33,7 @@ The first two links appear in the hero. Up to four become badges below it. Only 
 - `signal`: cyan, violet, and green on a research-console background.
 - `ocean`: teal, blue, and indigo with a calmer systems feel.
 - `solar`: cyan, blue, and amber with warmer technical accents.
+- `quantum`: neon cyan, electric blue, and neon violet on a near-black background, with an ambient neural network, rotating AI core, and animated corner frames layered behind the panels for an AI command-center feel.
 
 Every palette includes separate dark and light values.
 

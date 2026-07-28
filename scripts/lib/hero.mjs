@@ -6,7 +6,11 @@ import { clamp, escapeXml } from "./xml.mjs";
 
 const GENERATOR_VERSION = "agent-console-v1";
 
-const paletteDefinitions = {
+export const paletteDefinitions = {
+  quantum: {
+    dark: { backgroundStart: "#020208", backgroundEnd: "#050B1A", panel: "#050B16", primary: "#E8FBFF", muted: "#5B7A94", cyan: "#00F0FF", blue: "#3B82F6", violet: "#A855F7", green: "#00FFA3", red: "#FF3B6B", scanBlend: "screen" },
+    light: { backgroundStart: "#F3FBFF", backgroundEnd: "#EEF2FF", panel: "#FFFFFF", primary: "#071A2E", muted: "#5C6B85", cyan: "#0891B2", blue: "#2563EB", violet: "#7E22CE", green: "#047857", red: "#DC2626", scanBlend: "multiply" }
+  },
   signal: {
     dark: { backgroundStart: "#020617", backgroundEnd: "#11152F", panel: "#07111F", primary: "#E5E7EB", muted: "#64748B", cyan: "#22D3EE", blue: "#38BDF8", violet: "#7C3AED", green: "#10B981", red: "#F87171", scanBlend: "screen" },
     light: { backgroundStart: "#F8FBFF", backgroundEnd: "#F5F3FF", panel: "#FFFFFF", primary: "#172554", muted: "#64748B", cyan: "#0891B2", blue: "#2563EB", violet: "#6D28D9", green: "#047857", red: "#DC2626", scanBlend: "multiply" }
@@ -21,7 +25,7 @@ const paletteDefinitions = {
   }
 };
 
-const layouts = {
+export const layouts = {
   desktop: {
     width: 1180,
     height: 610,
@@ -206,14 +210,116 @@ function buildAmbientPortraitLayer(layout, colors, size) {
 </g>`;
 }
 
-function createHeroSvg(config, colors, size, portrait) {
+const NEURAL_NODES = [
+  [0.045, 0.14], [0.09, 0.34], [0.055, 0.58], [0.1, 0.82],
+  [0.24, 0.06], [0.31, 0.5], [0.27, 0.94],
+  [0.43, 0.16], [0.47, 0.62], [0.44, 0.88],
+  [0.63, 0.09], [0.6, 0.4], [0.66, 0.7], [0.62, 0.95],
+  [0.82, 0.15], [0.87, 0.44], [0.83, 0.68], [0.9, 0.9],
+  [0.97, 0.28], [0.955, 0.6]
+];
+const NEURAL_EDGES = [
+  [0, 1], [1, 2], [2, 3], [1, 4], [1, 5], [5, 6], [5, 7], [5, 8], [8, 9],
+  [7, 10], [7, 11], [11, 8], [11, 12], [12, 13], [11, 14], [14, 15], [15, 16],
+  [16, 17], [15, 18], [18, 19], [10, 14]
+];
+const PULSE_EDGES = [1, 5, 11, 15];
+const DATA_TOKENS = [
+  "0x4F2A", "10110101", "AI::09C1", "0x7BD3", "SEC-0x2E", "01001110",
+  "NODE::14", "0xE13F", "SYNC-88", "0x00A9"
+];
+
+function buildNeuralNetworkLayer(colors, layout) {
+  const { width, height } = layout;
+  const points = NEURAL_NODES.map(([fx, fy]) => [fx * width, fy * height]);
+  const edges = NEURAL_EDGES.map(([a, b], index) => {
+    const [x1, y1] = points[a];
+    const [x2, y2] = points[b];
+    return `<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="${index % 3 === 0 ? colors.blue : colors.cyan}" stroke-width="0.6" opacity="0.1"/>`;
+  }).join("");
+  const pulses = PULSE_EDGES.map((edgeIndex, i) => {
+    const [a, b] = NEURAL_EDGES[edgeIndex];
+    const [x1, y1] = points[a];
+    const [x2, y2] = points[b];
+    const dur = (4.4 + i * 1.1).toFixed(1);
+    return `<circle r="1.8" fill="${colors.cyan}" opacity="0.75"><animateMotion path="M ${x1.toFixed(1)} ${y1.toFixed(1)} L ${x2.toFixed(1)} ${y2.toFixed(1)}" dur="${dur}s" begin="${(i * 0.7).toFixed(1)}s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.85;0" dur="${dur}s" begin="${(i * 0.7).toFixed(1)}s" repeatCount="indefinite"/></circle>`;
+  }).join("");
+  const nodes = points.map(([x, y], index) => {
+    const dur = (3.6 + (index % 5) * 0.7).toFixed(1);
+    const r = index % 4 === 0 ? 2.4 : 1.5;
+    return `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${r}" fill="${index % 3 === 0 ? colors.violet : colors.cyan}" opacity="0.3"><animate attributeName="opacity" values="0.16;0.5;0.16" dur="${dur}s" repeatCount="indefinite"/></circle>`;
+  }).join("");
+
+  return `<g aria-hidden="true" opacity="0.55">${edges}${pulses}${nodes}</g>`;
+}
+
+function buildAiCoreLayer(colors, layout) {
+  const cx = layout.width * 0.565;
+  const cy = layout.height * 0.52;
+  const base = Math.min(layout.width, layout.height);
+  const r1 = base * 0.3;
+  const r2 = base * 0.21;
+  const r3 = base * 0.13;
+
+  return `<g aria-hidden="true" opacity="0.16">
+  <circle cx="${cx.toFixed(1)}" cy="${cy.toFixed(1)}" r="${r1.toFixed(1)}" fill="none" stroke="${colors.cyan}" stroke-width="1" stroke-dasharray="2 10" opacity="0.5"><animateTransform attributeName="transform" type="rotate" from="0 ${cx.toFixed(1)} ${cy.toFixed(1)}" to="360 ${cx.toFixed(1)} ${cy.toFixed(1)}" dur="48s" repeatCount="indefinite"/></circle>
+  <circle cx="${cx.toFixed(1)}" cy="${cy.toFixed(1)}" r="${r2.toFixed(1)}" fill="none" stroke="${colors.violet}" stroke-width="1.1" stroke-dasharray="26 18" opacity="0.4"><animateTransform attributeName="transform" type="rotate" from="360 ${cx.toFixed(1)} ${cy.toFixed(1)}" to="0 ${cx.toFixed(1)} ${cy.toFixed(1)}" dur="36s" repeatCount="indefinite"/></circle>
+  <circle cx="${cx.toFixed(1)}" cy="${cy.toFixed(1)}" r="${r3.toFixed(1)}" fill="none" stroke="${colors.blue}" stroke-width="1" opacity="0.3"><animate attributeName="r" values="${r3.toFixed(1)};${(r3 * 1.08).toFixed(1)};${r3.toFixed(1)}" dur="5s" repeatCount="indefinite"/></circle>
+  <circle cx="${cx.toFixed(1)}" cy="${cy.toFixed(1)}" r="4" fill="${colors.cyan}"><animate attributeName="opacity" values="0.4;1;0.4" dur="2.2s" repeatCount="indefinite"/></circle>
+  <circle cx="${cx.toFixed(1)}" cy="${cy.toFixed(1)}" r="${(base * 0.4).toFixed(1)}" fill="none" stroke="${colors.cyan}" stroke-width="1" opacity="0"><animate attributeName="r" values="${(base * 0.06).toFixed(1)};${(base * 0.42).toFixed(1)}" dur="6s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.4;0" dur="6s" repeatCount="indefinite"/></circle>
+</g>`;
+}
+
+function buildFloatingDataLayer(colors, layout, size) {
+  const isDesktop = size === "desktop";
+  const positions = isDesktop
+    ? [[36, 58], [1108, 58], [960, 40], [40, 560], [1130, 300], [58, 300], [1050, 560], [980, 200], [30, 430], [1120, 470]]
+    : [[24, 70], [660, 70], [30, 440], [664, 440], [24, 1000], [660, 1000], [30, 700], [660, 700]];
+
+  return `<g aria-hidden="true" class="mono" font-size="8.5" letter-spacing="0.5">${positions.map(([x, y], index) => {
+    const token = DATA_TOKENS[index % DATA_TOKENS.length];
+    const color = index % 2 === 0 ? colors.cyan : colors.blue;
+    const dur = (5 + (index % 4)).toFixed(1);
+    const amp = 5 + (index % 3) * 2;
+    return `<text x="${x}" y="${y}" fill="${color}" opacity="0.16"><animate attributeName="opacity" values="0.05;0.3;0.05" dur="${dur}s" begin="${(index * 0.4).toFixed(1)}s" repeatCount="indefinite"/><animateTransform attributeName="transform" type="translate" values="0 0; 0 -${amp}; 0 0" dur="${(dur * 1.6).toFixed(1)}s" repeatCount="indefinite"/>${escapeXml(token)}</text>`;
+  }).join("")}</g>`;
+}
+
+function buildCornerFrameLayer(colors, layout) {
+  const inset = 9;
+  const arm = Math.min(layout.width, layout.height) * 0.055;
+  const w = layout.width;
+  const h = layout.height;
+  const corners = [
+    [inset, inset, 1, 1],
+    [w - inset, inset, -1, 1],
+    [inset, h - inset, 1, -1],
+    [w - inset, h - inset, -1, -1]
+  ];
+
+  const marks = corners.map(([x, y, dx, dy], index) => {
+    const dur = (3 + index * 0.4).toFixed(1);
+    return `<path d="M ${x} ${(y + arm * dy).toFixed(1)} L ${x} ${y} L ${(x + arm * dx).toFixed(1)} ${y}" fill="none" stroke="${colors.cyan}" stroke-width="1.6" opacity="0.55"><animate attributeName="opacity" values="0.3;0.85;0.3" dur="${dur}s" repeatCount="indefinite"/></path>`;
+  }).join("");
+
+  return `<g aria-hidden="true">${marks}</g>`;
+}
+
+function buildCyberAmbientLayer(colors, layout, size) {
+  return `${buildAiCoreLayer(colors, layout)}
+${buildNeuralNetworkLayer(colors, layout)}
+${buildFloatingDataLayer(colors, layout, size)}
+${buildCornerFrameLayer(colors, layout)}`;
+}
+
+export function createHeroSvg(config, colors, size, portrait) {
   const layout = layouts[size];
   const titlebar = layout.titlebar;
   const visual = layout.visualPanel;
   const info = layout.infoPanel;
   const clip = layout.portraitClip;
   const profileLines = buildProfileLines(config);
-  const ascii = createAsciiTspans(portrait, layout.portrait);
+  const ascii = typeof portrait === "string" ? portrait : createAsciiTspans(portrait, layout.portrait);
   const system = buildSystemLayer(profileLines, layout.system, colors);
   const ambientPortrait = buildAmbientPortraitLayer(layout, colors, size);
   const isDesktop = size === "desktop";
@@ -251,6 +357,7 @@ function createHeroSvg(config, colors, size, portrait) {
 </defs>
 <rect width="${layout.width}" height="${layout.height}" rx="${layout.outerRadius}" fill="url(#background)"/>
 <rect width="${layout.width}" height="${layout.height}" rx="${layout.outerRadius}" fill="url(#scanlines)"/>
+${buildCyberAmbientLayer(colors, layout, size)}
 <rect x="${titlebar.x}" y="${titlebar.y}" width="${titlebar.width}" height="${titlebar.height}" rx="${titlebar.radius}" fill="${colors.panel}" fill-opacity="0.84"/>
 <circle cx="${titlebar.x + 21}" cy="${titlebar.y + titlebar.height / 2}" r="5" fill="#EF4444"/><circle cx="${titlebar.x + 39}" cy="${titlebar.y + titlebar.height / 2}" r="5" fill="#F59E0B"/><circle cx="${titlebar.x + 57}" cy="${titlebar.y + titlebar.height / 2}" r="5" fill="${colors.green}"/>
 <text x="${titleCenter}" y="${titlebar.y + titlebar.height / 2 + 5}" text-anchor="middle" class="terminal-label">${escapeXml(terminalUser)}@profile ~ % ./profile --live</text>

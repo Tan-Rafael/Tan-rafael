@@ -3,13 +3,13 @@
   "profile": {
     "name": "Chen Cai Lian",
     "username": "rafaelhugovivaldi19-star",
-    "headline": "AI Systems Engineer",
+    "headline": "AI Command Center Engineer",
     "affiliation": "Anlytix AI",
     "location": "Indonesia",
-    "status": "Building AI & Legacy Systems",
+    "status": "Running an AI Command Center",
     "about": [
-      "I build AI software and modern digital systems.",
-      "My work focuses on Anlytix AI and digital legacy platforms."
+      "I build AI systems and next-generation digital infrastructure.",
+      "My work focuses on Anlytix AI and autonomous, real-time platforms."
     ]
   },
   "research": {
@@ -79,7 +79,7 @@
     "limit": 6
   },
   "appearance": {
-    "palette": "signal"
+    "palette": "quantum"
   },
   "footer": "Building AI systems and digital infrastructure."
 }
