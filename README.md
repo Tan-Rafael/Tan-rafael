@@ -5,12 +5,12 @@
     <source media="(max-width: 760px)" srcset="./assets/hero/agent-console-220626cd-mobile-light.svg">
     <source media="(prefers-color-scheme: dark)" srcset="./assets/hero/agent-console-220626cd-dark.svg">
     <source media="(prefers-color-scheme: light)" srcset="./assets/hero/agent-console-220626cd-light.svg">
-    <img src="./assets/hero/agent-console-220626cd-dark.svg" alt="Chen Cai Lian - AI Command Center Engineer" width="100%">
+    <img src="./assets/hero/agent-console-220626cd-dark.svg" alt="Chen Cai Lian - AI Systems Engineer" width="100%">
   </picture>
 </p>
 
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=58A6FF&center=true&vCenter=true&width=560&height=45&lines=AI%20Command%20Center%20Engineer;Running%20an%20AI%20Command%20Center;Scalable%20AI%20Infrastructure" alt="Typing SVG">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=58A6FF&center=true&vCenter=true&width=560&height=45&lines=AI%20Systems%20Engineer;Building%20AI%20%26%20Legacy%20Systems;Scalable%20AI%20Infrastructure" alt="Typing SVG">
 </p>
 
 <p align="center">
@@ -21,9 +21,9 @@
 
 ## About Me
 
-I build AI systems and next-generation digital infrastructure.
+I build AI software and modern digital systems.
 
-My work focuses on Anlytix AI and autonomous, real-time platforms.
+My work focuses on Anlytix AI and digital legacy platforms.
 
 ## Current Focus
 
