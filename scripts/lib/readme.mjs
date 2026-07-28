@@ -65,11 +65,6 @@ function typingSvgUrl(config) {
 
 function statsUrls(username) {
   return {
-    stats: `https://github-readme-stats.vercel.app/api?username=${username}&show_icons=true&theme=tokyonight&hide_border=true&count_private=true`,
-    streak: `https://github-readme-streak-stats.herokuapp.com/?user=${username}&theme=tokyonight&hide_border=true`,
-    langs: `https://github-readme-stats.vercel.app/api/top-langs/?username=${username}&layout=compact&theme=tokyonight&hide_border=true`,
-    trophies: `https://github-profile-trophy.vercel.app/?username=${username}&theme=tokyonight&no-frame=true&row=1&column=6&margin-w=8`,
-    activityGraph: `https://github-readme-activity-graph.vercel.app/graph?username=${username}&theme=tokyo-night&hide_border=true&area=true`,
     visitors: `https://komarev.com/ghpvc/?username=${username}&label=Profile%20Views&color=58a6ff&style=for-the-badge`,
     snakeDark: `https://raw.githubusercontent.com/${username}/${username}/output/github-contribution-grid-snake-dark.svg`,
     snakeLight: `https://raw.githubusercontent.com/${username}/${username}/output/github-contribution-grid-snake.svg`
@@ -143,21 +138,14 @@ ${techStack}
 ## GitHub Stats
 
 <p align="center">
-  <img src="${stats.stats}" alt="GitHub stats" height="165">
-  <img src="${stats.streak}" alt="GitHub streak" height="165">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/dashboard/dashboard-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="./assets/dashboard/dashboard-light.svg">
+    <img src="./assets/dashboard/dashboard-dark.svg" alt="${escapeCell(config.profile.name)} GitHub cyber intelligence dashboard" width="100%">
+  </picture>
 </p>
 
-<p align="center">
-  <img src="${stats.langs}" alt="Top languages" height="165">
-</p>
-
-<p align="center">
-  <img src="${stats.trophies}" alt="GitHub trophies">
-</p>
-
-<p align="center">
-  <img src="${stats.activityGraph}" alt="Contribution activity graph" width="100%">
-</p>
+<sub>Live repository, language, and contribution data — regenerated automatically. Run <code>npm run dashboard</code> locally, or let the <code>dashboard.yml</code> workflow keep it in sync.</sub>
 
 ## Contribution Snake
 

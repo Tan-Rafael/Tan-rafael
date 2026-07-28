@@ -11,9 +11,12 @@
     "setup": "node scripts/setup.mjs",
     "generate": "node scripts/generate.mjs",
     "generate:hero": "node scripts/generate-hero.mjs",
+    "generate:hero-theme": "node scripts/regenerate-hero-theme.mjs",
     "generate:readme": "node scripts/generate-readme.mjs",
     "generate:demo": "node scripts/generate-demo.mjs",
     "activity": "node scripts/update-activity.mjs",
+    "dashboard": "node scripts/generate-dashboard.mjs",
+    "dashboard:sample": "node scripts/generate-dashboard.mjs --sample",
     "validate": "node scripts/validate.mjs",
     "check": "npm run validate"
   },

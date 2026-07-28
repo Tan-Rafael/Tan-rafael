@@ -5,25 +5,25 @@
     <source media="(max-width: 760px)" srcset="./assets/hero/agent-console-220626cd-mobile-light.svg">
     <source media="(prefers-color-scheme: dark)" srcset="./assets/hero/agent-console-220626cd-dark.svg">
     <source media="(prefers-color-scheme: light)" srcset="./assets/hero/agent-console-220626cd-light.svg">
-    <img src="./assets/hero/agent-console-220626cd-dark.svg" alt="Chen Cai Lian - AI Systems Engineer" width="100%">
+    <img src="./assets/hero/agent-console-220626cd-dark.svg" alt="Chen Cai Lian - AI Command Center Engineer" width="100%">
   </picture>
 </p>
 
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=58A6FF&center=true&vCenter=true&width=560&height=45&lines=AI%20Systems%20Engineer;Building%20AI%20%26%20Legacy%20Systems;Scalable%20AI%20Infrastructure" alt="Typing SVG">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=58A6FF&center=true&vCenter=true&width=560&height=45&lines=AI%20Command%20Center%20Engineer;Running%20an%20AI%20Command%20Center;Scalable%20AI%20Infrastructure" alt="Typing SVG">
 </p>
 
 <p align="center">
-  <a href="https://github.com/rafaelhugovivaldi19-star"><img alt="GitHub" src="https://img.shields.io/badge/GitHub-rafaelhugovivaldi19--star-0B1220?style=for-the-badge&logo=github&logoColor=white"></a>
-  <img alt="Profile Views" src="https://komarev.com/ghpvc/?username=rafaelhugovivaldi19-star&label=Profile%20Views&color=58a6ff&style=for-the-badge">
+  <a href="https://github.com/Tan-Rafael"><img alt="GitHub" src="https://img.shields.io/badge/GitHub-Tan--Rafael-0B1220?style=for-the-badge&logo=github&logoColor=white"></a>
+  <img alt="Profile Views" src="https://komarev.com/ghpvc/?username=Tan-Rafael&label=Profile%20Views&color=58a6ff&style=for-the-badge">
   <img alt="Status" src="https://img.shields.io/badge/status-online-39D353?style=for-the-badge&logo=statuspage&logoColor=white">
 </p>
 
 ## About Me
 
-I build AI software and modern digital systems.
+I build AI systems and next-generation digital infrastructure.
 
-My work focuses on Anlytix AI and digital legacy platforms.
+My work focuses on Anlytix AI and autonomous, real-time platforms.
 
 ## Current Focus
 
@@ -37,8 +37,8 @@ My work focuses on Anlytix AI and digital legacy platforms.
 
 | Project | Focus | Why it matters |
 | --- | --- | --- |
-| [**Analisis-Asset**](https://github.com/rafaelhugovivaldi19-star/Analisis-Asset) | AI Analytics | AI analytics for financial data and autonomous workflows. |
-| [**Anlytix AI**](https://github.com/rafaelhugovivaldi19-star/Anlytix) | Financial AI | AI-powered analytics for global financial markets. |
+| [**Analisis-Asset**](https://github.com/Tan-Rafael/Analisis-Asset) | AI Analytics | AI analytics for financial data and autonomous workflows. |
+| [**Anlytix AI**](https://github.com/Tan-Rafael/Anlytix) | Financial AI | AI-powered analytics for global financial markets. |
 
 ## Research Direction
 
@@ -55,29 +55,22 @@ I build AI systems, autonomous agents, analytics, and secure digital infrastruct
 ## GitHub Stats
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=rafaelhugovivaldi19-star&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" alt="GitHub stats" height="165">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=rafaelhugovivaldi19-star&theme=tokyonight&hide_border=true" alt="GitHub streak" height="165">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/dashboard/dashboard-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="./assets/dashboard/dashboard-light.svg">
+    <img src="./assets/dashboard/dashboard-dark.svg" alt="Chen Cai Lian GitHub cyber intelligence dashboard" width="100%">
+  </picture>
 </p>
 
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=rafaelhugovivaldi19-star&layout=compact&theme=tokyonight&hide_border=true" alt="Top languages" height="165">
-</p>
-
-<p align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=rafaelhugovivaldi19-star&theme=tokyonight&no-frame=true&row=1&column=6&margin-w=8" alt="GitHub trophies">
-</p>
-
-<p align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=rafaelhugovivaldi19-star&theme=tokyo-night&hide_border=true&area=true" alt="Contribution activity graph" width="100%">
-</p>
+<sub>Live repository, language, and contribution data — regenerated automatically. Run <code>npm run dashboard</code> locally, or let the <code>dashboard.yml</code> workflow keep it in sync.</sub>
 
 ## Contribution Snake
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/rafaelhugovivaldi19-star/rafaelhugovivaldi19-star/output/github-contribution-grid-snake-dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/rafaelhugovivaldi19-star/rafaelhugovivaldi19-star/output/github-contribution-grid-snake.svg">
-    <img alt="Contribution snake animation" src="https://raw.githubusercontent.com/rafaelhugovivaldi19-star/rafaelhugovivaldi19-star/output/github-contribution-grid-snake-dark.svg">
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Tan-Rafael/Tan-Rafael/output/github-contribution-grid-snake-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Tan-Rafael/Tan-Rafael/output/github-contribution-grid-snake.svg">
+    <img alt="Contribution snake animation" src="https://raw.githubusercontent.com/Tan-Rafael/Tan-Rafael/output/github-contribution-grid-snake-dark.svg">
   </picture>
 </p>
 

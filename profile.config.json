@@ -2,14 +2,14 @@
   "$schema": "./profile.schema.json",
   "profile": {
     "name": "Chen Cai Lian",
-    "username": "rafaelhugovivaldi19-star",
-    "headline": "AI Systems Engineer",
+    "username": "Tan-Rafael",
+    "headline": "AI Command Center Engineer",
     "affiliation": "Anlytix AI",
     "location": "Indonesia",
-    "status": "Building AI & Legacy Systems",
+    "status": "Running an AI Command Center",
     "about": [
-      "I build AI software and modern digital systems.",
-      "My work focuses on Anlytix AI and digital legacy platforms."
+      "I build AI systems and next-generation digital infrastructure.",
+      "My work focuses on Anlytix AI and autonomous, real-time platforms."
     ]
   },
   "research": {
@@ -35,7 +35,7 @@
   "projects": [
     {
       "name": "Analisis-Asset",
-      "url": "https://github.com/rafaelhugovivaldi19-star/Analisis-Asset",
+      "url": "https://github.com/Tan-Rafael/Analisis-Asset",
       "homepage": "",
       "focus": "AI Analytics",
       "summary": "AI analytics for financial data and autonomous workflows.",
@@ -43,7 +43,7 @@
     },
     {
       "name": "Anlytix AI",
-      "url": "https://github.com/rafaelhugovivaldi19-star/Anlytix",
+      "url": "https://github.com/Tan-Rafael/Anlytix",
       "homepage": "",
       "focus": "Financial AI",
       "summary": "AI-powered analytics for global financial markets.",
@@ -68,8 +68,8 @@
   "links": [
     {
       "label": "GitHub",
-      "value": "rafaelhugovivaldi19-star",
-      "url": "https://github.com/rafaelhugovivaldi19-star",
+      "value": "Tan-Rafael",
+      "url": "https://github.com/Tan-Rafael",
       "logo": "github",
       "color": "0B1220"
     }
@@ -79,7 +79,7 @@
     "limit": 6
   },
   "appearance": {
-    "palette": "signal"
+    "palette": "quantum"
   },
   "footer": "Building AI systems and digital infrastructure."
 }

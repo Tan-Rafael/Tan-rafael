@@ -45,7 +45,7 @@ Create a professional English GitHub Profile README that accurately presents who
 - One to six featured projects with accurate URLs and concise evidence-based descriptions
 - Curated tech stack
 - Public links only
-- Preferred palette: `signal`, `ocean`, or `solar`
+- Preferred palette: `signal`, `ocean`, `solar`, or `quantum`
 - Whether recent public GitHub activity should auto-update
 - Absolute local path to the transparent PNG portrait
 

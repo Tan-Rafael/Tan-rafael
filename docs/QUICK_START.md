@@ -86,7 +86,27 @@ git push origin main
 
 Visit `https://github.com/YOUR_USERNAME` and confirm the README appears above pinned repositories.
 
-## 7. Enable Activity Updates
+## 7. Generate the Cyber Intelligence Dashboard
+
+The **GitHub Stats** section renders a generated dashboard SVG (stat rings, a language breakdown, a contribution heatmap, and a weekly activity chart) instead of third-party badge images. Generate it once with live data:
+
+```bash
+GITHUB_TOKEN=your_personal_access_token npm run dashboard
+```
+
+A `GITHUB_TOKEN`/`GH_TOKEN` environment variable is optional but recommended — it raises GitHub's API rate limit and is required for the contribution calendar and language totals. To preview the panel layout offline without any token, run `npm run dashboard:sample` instead; it fills the same charts with placeholder data.
+
+Commit the result:
+
+```bash
+git add assets/dashboard
+git commit -m "feat: generate cyber intelligence dashboard"
+git push origin main
+```
+
+The included `dashboard.yml` workflow regenerates these assets automatically every six hours using the repository's own `GITHUB_TOKEN`, so the numbers stay current without further action.
+
+## 8. Enable Activity Updates
 
 The included workflow runs only when the repository name matches its owner. If `activity.enabled` is `true`, GitHub Actions can update the bounded Recent Activity section without modifying curated profile content.
 

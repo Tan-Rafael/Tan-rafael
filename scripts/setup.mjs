@@ -95,7 +95,7 @@ try {
     });
   }
 
-  const palette = await ask("Palette: signal, ocean, or solar", defaults.appearance.palette);
+  const palette = await ask("Palette: signal, ocean, solar, or quantum", defaults.appearance.palette);
   const activityEnabled = await confirm("Show automatically updated public GitHub activity", defaults.activity.enabled);
   const footer = await ask("Footer sentence", defaults.footer);
   const sourcePath = resolve(await ask("Absolute path to transparent PNG portrait"));
