@@ -160,6 +160,14 @@ ${techStack}
 </p>
 
 <sub>An original animated wave (not GitHub's calendar grid) built from the same contribution data. Run <code>npm run pulse</code> locally, or let the <code>contribution-pulse.yml</code> workflow keep it in sync.</sub>
+
+## GitHub Metrics
+
+<p align="center">
+  <img src="./metrics.svg" alt="${escapeCell(config.profile.name)} detailed GitHub metrics" width="100%">
+</p>
+
+<sub>Detailed activity, community, and language breakdown — regenerated daily by the <code>metrics.yml</code> workflow (lowlighter/metrics).</sub>
 ${activitySection}
 ---
 

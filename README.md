@@ -88,6 +88,14 @@ I build AI systems, autonomous agents, analytics, and secure digital infrastruct
 
 <sub>An original animated wave (not GitHub's calendar grid) built from the same contribution data. Run <code>npm run pulse</code> locally, or let the <code>contribution-pulse.yml</code> workflow keep it in sync.</sub>
 
+## GitHub Metrics
+
+<p align="center">
+  <img src="./metrics.svg" alt="Chen Cai Lian detailed GitHub metrics" width="100%">
+</p>
+
+<sub>Detailed activity, community, and language breakdown — regenerated daily by the <code>metrics.yml</code> workflow (lowlighter/metrics).</sub>
+
 ## Recent Activity
 
 <!-- AUTO:ACTIVITY:START -->

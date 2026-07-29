@@ -168,8 +168,9 @@ function buildSystemLayer(profileLines, { x, y, width, lineHeight, fontSize }, c
     const id = `system-line-${index}`;
     const lineY = y + index * lineHeight;
     const begin = (0.68 + index * 0.105).toFixed(2);
+    const rowFontSize = line.type === "footer" ? fontSize + 4 : line.type === "header" ? fontSize + 2 : fontSize;
 
-    clips.push(`<clipPath id="${id}"><rect x="${x - 3}" y="${(lineY - fontSize - 2).toFixed(2)}" width="0" height="${fontSize + 8}"><animate attributeName="width" from="0" to="${width}" dur="0.36s" begin="${begin}s" fill="freeze"/></rect></clipPath>`);
+    clips.push(`<clipPath id="${id}"><rect x="${x - 3}" y="${(lineY - rowFontSize - 2).toFixed(2)}" width="0" height="${rowFontSize + 8}"><animate attributeName="width" from="0" to="${width}" dur="0.36s" begin="${begin}s" fill="freeze"/></rect></clipPath>`);
 
     if (line.type === "header") {
       rows.push(`<g clip-path="url(#${id})"><text x="${x}" y="${lineY}" class="system-head"><tspan fill="${colors.violet}">${escapeXml(line.value)}</tspan><tspan fill="${colors.muted}"> ------------------------------------------</tspan></text></g>`);
@@ -325,7 +326,7 @@ export function createHeroSvg(config, colors, size, portrait) {
   const isDesktop = size === "desktop";
   const titleCenter = titlebar.x + titlebar.width / 2;
   const liveX = titlebar.x + titlebar.width - 138;
-  const cursorY = layout.system.y + (profileLines.length - 1) * layout.system.lineHeight - 15;
+  const cursorY = layout.system.y + profileLines.length * layout.system.lineHeight - 15;
   const terminalUser = config.profile.username.slice(0, isDesktop ? 22 : 14);
   const footerLabel = config.focus.slice(0, 3).map((item) => item.name.toUpperCase()).join(" / ").slice(0, 64);
 
@@ -350,7 +351,8 @@ export function createHeroSvg(config, colors, size, portrait) {
     .terminal-label { font-family: 'Courier New', Consolas, monospace; font-size: ${isDesktop ? 12 : 11}px; letter-spacing: 0.5px; fill: ${colors.muted}; }
     .live-label { font-family: 'Courier New', Consolas, monospace; font-size: 10px; letter-spacing: 1px; fill: ${colors.red}; }
     .system-head { font-family: 'Courier New', Consolas, monospace; font-size: ${layout.system.fontSize + 2}px; font-weight: 700; }
-    .system-section, .system-footer, .system-row { font-family: 'Courier New', Consolas, monospace; font-size: ${layout.system.fontSize}px; }
+    .system-section, .system-row { font-family: 'Courier New', Consolas, monospace; font-size: ${layout.system.fontSize}px; }
+    .system-footer { font-family: 'Courier New', Consolas, monospace; font-size: ${layout.system.fontSize + 4}px; font-weight: 700; letter-spacing: 0.4px; }
     .system-section, .system-key { font-weight: 700; }
     text, tspan { white-space: pre; }
   </style>
