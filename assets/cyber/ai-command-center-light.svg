@@ -1,4 +1,4 @@
-<svg viewBox="0 0 1200 720" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI Command Center dashboard">
+<svg viewBox="0 0 1200 720" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="AI Command Center dashboard">
   <defs>
     <clipPath id="outerClip"><rect x="0" y="0" width="1200" height="720" rx="18"/></clipPath>
     <linearGradient id="scanBeam" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -16,6 +16,7 @@
       <stop offset="100%" stop-color="#38BDF8"/>
     </linearGradient>
   </defs>
+  <style>a{cursor:pointer;}a:hover rect{stroke-opacity:0.9;}a:hover text{opacity:1;}</style>
 
   <rect x="0" y="0" width="1200" height="720" rx="18" fill="#F3FBFF"/>
   <g clip-path="url(#outerClip)"><line x1="0" y1="0" x2="0" y2="720" stroke="#22D3EE" stroke-width="0.4" opacity="0.05"/>
@@ -82,6 +83,7 @@
   <text x="1056" y="41" font-family="Fira Code, monospace" font-size="13" fill="#39D353" letter-spacing="1">SYSTEM ONLINE</text>
   <text x="30" y="66" font-family="Fira Code, monospace" font-size="13" fill="#5B7A94">Cyber Security Engineer // AI System Architect // Full Stack Engineer</text>
 
+  <a xlink:href="https://github.com/Tan-Rafael?tab=repositories" target="_blank" aria-label="Open GitHub repositories">
   <g>
     <rect x="24" y="84" width="370" height="300" rx="10" fill="#08111F" opacity="0.55" stroke="#22D3EE" stroke-width="1" stroke-opacity="0.4"/>
     <text x="38" y="106" font-family="Fira Code, monospace" font-size="14" fill="#22D3EE" letter-spacing="1.5" opacity="0.9">THREAT RADAR</text>
@@ -104,6 +106,8 @@
         <animate attributeName="opacity" values="0;0;1;0.3;0" keyTimes="0;0.7;0.7374999999999999;0.85;1" dur="4.0s" repeatCount="indefinite"/>
       </circle><text x="209" y="366" text-anchor="middle" font-family="Fira Code, monospace" font-size="12" fill="#5B7A94">THREAT RADAR // SCANNING</text>
 
+  </a>
+  <a xlink:href="https://github.com/Tan-Rafael/Anlytix" target="_blank" aria-label="Open Anlytix AI project">
   <g>
     <rect x="410" y="84" width="380" height="300" rx="10" fill="#08111F" opacity="0.55" stroke="#22D3EE" stroke-width="1" stroke-opacity="0.4"/>
     <text x="424" y="106" font-family="Fira Code, monospace" font-size="14" fill="#22D3EE" letter-spacing="1.5" opacity="0.9">AI TERMINAL</text>
@@ -184,6 +188,8 @@
     <animate attributeName="opacity" values="1;1;0;0;1" keyTimes="0;0.5;0.5;1;1" dur="0.9s" repeatCount="indefinite"/>
   </rect>
 
+  </a>
+  <a xlink:href="https://github.com/Tan-Rafael" target="_blank" aria-label="Open GitHub profile">
   <g>
     <rect x="806" y="84" width="370" height="300" rx="10" fill="#08111F" opacity="0.55" stroke="#22D3EE" stroke-width="1" stroke-opacity="0.4"/>
     <text x="820" y="106" font-family="Fira Code, monospace" font-size="14" fill="#22D3EE" letter-spacing="1.5" opacity="0.9">SYSTEM METRICS</text>
@@ -191,43 +197,64 @@
     <path d="M 806 100 L 806 84 L 822 84" fill="none" stroke="#22D3EE" stroke-width="2"><animate attributeName="opacity" values="0.35;1;0.35" dur="2.4s" repeatCount="indefinite"/></path><path d="M 1176 100 L 1176 84 L 1160 84" fill="none" stroke="#22D3EE" stroke-width="2"><animate attributeName="opacity" values="0.35;1;0.35" dur="2.4s" repeatCount="indefinite"/></path><path d="M 806 368 L 806 384 L 822 384" fill="none" stroke="#22D3EE" stroke-width="2"><animate attributeName="opacity" values="0.35;1;0.35" dur="2.4s" repeatCount="indefinite"/></path><path d="M 1176 368 L 1176 384 L 1160 384" fill="none" stroke="#22D3EE" stroke-width="2"><animate attributeName="opacity" values="0.35;1;0.35" dur="2.4s" repeatCount="indefinite"/></path>
   </g>
   <g>
-    <circle cx="901" cy="179" r="55" fill="none" stroke="#08111F" stroke-width="7" opacity="0.6"/>
-    <circle cx="901" cy="179" r="55" fill="none" stroke="#0EA5E9" stroke-width="7" stroke-linecap="round"
-      stroke-dasharray="345.6" transform="rotate(-90 901 179)">
-      <animate attributeName="stroke-dashoffset" values="214.3;89.8;214.3" dur="3.6s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.6 1;0.4 0 0.6 1" keyTimes="0;0.5;1"/>
+    <circle cx="901" cy="175" r="44" fill="none" stroke="#0EA5E9" stroke-width="0.6" opacity="0.15"/>
+    <circle cx="901" cy="175" r="36" fill="none" stroke="#08111F" stroke-width="7" opacity="0.6"/>
+    <circle cx="901" cy="175" r="36" fill="none" stroke="#0EA5E9" stroke-width="7" stroke-linecap="round"
+      stroke-dasharray="226.2" transform="rotate(-90 901 175)">
+      <animate attributeName="stroke-dashoffset" values="79.2;119.9;79.2" dur="3.6s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.6 1;0.4 0 0.6 1" keyTimes="0;0.5;1"/>
     </circle>
-    <text x="901" y="184" text-anchor="middle" font-family="Fira Code, monospace" font-size="18" fill="#E8FBFF">56%</text>
-    <text x="901" y="252" text-anchor="middle" font-family="Fira Code, monospace" font-size="12" fill="#5B7A94">CPU</text>
+    <circle cx="901" cy="139" r="2.4" fill="#0EA5E9">
+      <animate attributeName="opacity" values="1;0.35;1" dur="3.6s" repeatCount="indefinite"/>
+    </circle>
+    <text x="901" y="181" text-anchor="middle" font-family="Fira Code, monospace" font-size="18" font-weight="700" fill="#E8FBFF">56%</text>
+    <text x="901" y="231" text-anchor="middle" font-family="Fira Code, monospace" font-size="11" letter-spacing="1" fill="#5B7A94">CPU</text>
+    <text x="901" y="245" text-anchor="middle" font-family="Fira Code, monospace" font-size="9.5" fill="#F87171">+2.1%</text>
   </g>
   <g>
-    <circle cx="1081" cy="179" r="55" fill="none" stroke="#08111F" stroke-width="7" opacity="0.6"/>
-    <circle cx="1081" cy="179" r="55" fill="none" stroke="#7C3AED" stroke-width="7" stroke-linecap="round"
-      stroke-dasharray="345.6" transform="rotate(-90 1081 179)">
-      <animate attributeName="stroke-dashoffset" values="190.1;41.5;190.1" dur="4.1s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.6 1;0.4 0 0.6 1" keyTimes="0;0.5;1"/>
+    <circle cx="1081" cy="175" r="44" fill="none" stroke="#7C3AED" stroke-width="0.6" opacity="0.15"/>
+    <circle cx="1081" cy="175" r="36" fill="none" stroke="#08111F" stroke-width="7" opacity="0.6"/>
+    <circle cx="1081" cy="175" r="36" fill="none" stroke="#7C3AED" stroke-width="7" stroke-linecap="round"
+      stroke-dasharray="226.2" transform="rotate(-90 1081 175)">
+      <animate attributeName="stroke-dashoffset" values="52.0;101.8;52.0" dur="4.1s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.6 1;0.4 0 0.6 1" keyTimes="0;0.5;1"/>
     </circle>
-    <text x="1081" y="184" text-anchor="middle" font-family="Fira Code, monospace" font-size="18" fill="#E8FBFF">66%</text>
-    <text x="1081" y="252" text-anchor="middle" font-family="Fira Code, monospace" font-size="12" fill="#5B7A94">GPU</text>
+    <circle cx="1081" cy="139" r="2.4" fill="#7C3AED">
+      <animate attributeName="opacity" values="1;0.35;1" dur="4.1s" repeatCount="indefinite"/>
+    </circle>
+    <text x="1081" y="181" text-anchor="middle" font-family="Fira Code, monospace" font-size="18" font-weight="700" fill="#E8FBFF">66%</text>
+    <text x="1081" y="231" text-anchor="middle" font-family="Fira Code, monospace" font-size="11" letter-spacing="1" fill="#5B7A94">GPU</text>
+    <text x="1081" y="245" text-anchor="middle" font-family="Fira Code, monospace" font-size="9.5" fill="#F87171">+4.8%</text>
   </g>
   <g>
-    <circle cx="901" cy="299" r="55" fill="none" stroke="#08111F" stroke-width="7" opacity="0.6"/>
-    <circle cx="901" cy="299" r="55" fill="none" stroke="#38BDF8" stroke-width="7" stroke-linecap="round"
-      stroke-dasharray="345.6" transform="rotate(-90 901 299)">
-      <animate attributeName="stroke-dashoffset" values="165.9;72.6;165.9" dur="3.3s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.6 1;0.4 0 0.6 1" keyTimes="0;0.5;1"/>
+    <circle cx="901" cy="300" r="44" fill="none" stroke="#38BDF8" stroke-width="0.6" opacity="0.15"/>
+    <circle cx="901" cy="300" r="36" fill="none" stroke="#08111F" stroke-width="7" opacity="0.6"/>
+    <circle cx="901" cy="300" r="36" fill="none" stroke="#38BDF8" stroke-width="7" stroke-linecap="round"
+      stroke-dasharray="226.2" transform="rotate(-90 901 300)">
+      <animate attributeName="stroke-dashoffset" values="61.1;97.3;61.1" dur="3.3s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.6 1;0.4 0 0.6 1" keyTimes="0;0.5;1"/>
     </circle>
-    <text x="901" y="304" text-anchor="middle" font-family="Fira Code, monospace" font-size="18" fill="#E8FBFF">65%</text>
-    <text x="901" y="372" text-anchor="middle" font-family="Fira Code, monospace" font-size="12" fill="#5B7A94">RAM</text>
+    <circle cx="901" cy="264" r="2.4" fill="#38BDF8">
+      <animate attributeName="opacity" values="1;0.35;1" dur="3.3s" repeatCount="indefinite"/>
+    </circle>
+    <text x="901" y="306" text-anchor="middle" font-family="Fira Code, monospace" font-size="18" font-weight="700" fill="#E8FBFF">65%</text>
+    <text x="901" y="356" text-anchor="middle" font-family="Fira Code, monospace" font-size="11" letter-spacing="1" fill="#5B7A94">RAM</text>
+    <text x="901" y="370" text-anchor="middle" font-family="Fira Code, monospace" font-size="9.5" fill="#39D353">-1.4%</text>
   </g>
   <g>
-    <circle cx="1081" cy="299" r="55" fill="none" stroke="#08111F" stroke-width="7" opacity="0.6"/>
-    <circle cx="1081" cy="299" r="55" fill="none" stroke="#F87171" stroke-width="7" stroke-linecap="round"
-      stroke-dasharray="345.6" transform="rotate(-90 1081 299)">
-      <animate attributeName="stroke-dashoffset" values="328.3;269.5;328.3" dur="3.9s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.6 1;0.4 0 0.6 1" keyTimes="0;0.5;1"/>
+    <circle cx="1081" cy="300" r="44" fill="none" stroke="#F87171" stroke-width="0.6" opacity="0.15"/>
+    <circle cx="1081" cy="300" r="36" fill="none" stroke="#08111F" stroke-width="7" opacity="0.6"/>
+    <circle cx="1081" cy="300" r="36" fill="none" stroke="#F87171" stroke-width="7" stroke-linecap="round"
+      stroke-dasharray="226.2" transform="rotate(-90 1081 300)">
+      <animate attributeName="stroke-dashoffset" values="183.2;210.4;183.2" dur="3.9s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.6 1;0.4 0 0.6 1" keyTimes="0;0.5;1"/>
     </circle>
-    <text x="1081" y="304" text-anchor="middle" font-family="Fira Code, monospace" font-size="18" fill="#E8FBFF">13%</text>
-    <text x="1081" y="372" text-anchor="middle" font-family="Fira Code, monospace" font-size="12" fill="#5B7A94">THREAT LVL</text>
+    <circle cx="1081" cy="264" r="2.4" fill="#F87171">
+      <animate attributeName="opacity" values="1;0.35;1" dur="3.9s" repeatCount="indefinite"/>
+    </circle>
+    <text x="1081" y="306" text-anchor="middle" font-family="Fira Code, monospace" font-size="18" font-weight="700" fill="#E8FBFF">13%</text>
+    <text x="1081" y="356" text-anchor="middle" font-family="Fira Code, monospace" font-size="11" letter-spacing="1" fill="#5B7A94">THREAT LVL</text>
+    <text x="1081" y="370" text-anchor="middle" font-family="Fira Code, monospace" font-size="9.5" fill="#39D353">-0.6%</text>
   </g>
-
-  <g>
+  </a>
+  <a xlink:href="https://github.com/Tan-Rafael/Analisis-Asset" target="_blank" aria-label="Open Analisis-Asset project">
+<g>
     <rect x="24" y="400" width="1152" height="296" rx="10" fill="#08111F" opacity="0.55" stroke="#22D3EE" stroke-width="1" stroke-opacity="0.4"/>
     <text x="38" y="422" font-family="Fira Code, monospace" font-size="14" fill="#22D3EE" letter-spacing="1.5" opacity="0.9">GLOBAL NETWORK OPERATIONS</text>
     <line x1="38" y1="430" x2="1162" y2="430" stroke="#22D3EE" stroke-width="1" opacity="0.35"/>
@@ -268,4 +295,5 @@
       <animate attributeName="opacity" values="1;0.4;1" dur="2.4s" repeatCount="indefinite"/>
     </circle>
     <text x="733.4399999999999" y="538.2" text-anchor="middle" font-family="Fira Code, monospace" font-size="10" fill="#5B7A94">Dubai</text>
+  </a>
 </svg>
