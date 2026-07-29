@@ -71,17 +71,12 @@ function statsUrls(username) {
   };
 }
 
-<<<<<<< HEAD
 function waveCapsule() {
   return `<picture>
     <source media="(prefers-color-scheme: dark)" srcset="./assets/footer/footer-wave-dark.svg">
     <source media="(prefers-color-scheme: light)" srcset="./assets/footer/footer-wave-light.svg">
     <img src="./assets/footer/footer-wave-dark.svg" width="100%" alt="Footer wave">
   </picture>`;
-=======
-function waveCapsule({ height = 120, color = "0B1220" }) {
-  return `https://capsule-render.vercel.app/api?type=waving&color=${color}&height=${height}&section=footer`;
->>>>>>> 341dadcb0c3ca7d400f1dc760d3dc5c364cef4b6
 }
 
 export async function generateProfileReadme({ config, manifest, readmePath }) {
@@ -169,11 +164,7 @@ ${activitySection}
 ---
 
 <p align="center">
-<<<<<<< HEAD
   ${waveCapsule()}
-=======
-  <img src="${waveCapsule({ color: "0B1220", height: 100 })}" width="100%" alt="Footer wave">
->>>>>>> 341dadcb0c3ca7d400f1dc760d3dc5c364cef4b6
 </p>
 
 <p align="center">
