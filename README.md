@@ -88,13 +88,17 @@ I build AI systems, autonomous agents, analytics, and secure digital infrastruct
 
 <sub>An original animated wave (not GitHub's calendar grid) built from the same contribution data. Run <code>npm run pulse</code> locally, or let the <code>contribution-pulse.yml</code> workflow keep it in sync.</sub>
 
-## GitHub Metrics
+## GitHub Metrics — AI Developer Intelligence Dashboard
 
 <p align="center">
-  <img src="./metrics.svg" alt="Chen Cai Lian detailed GitHub metrics" width="100%">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/ai-metrics/ai-metrics-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="./assets/ai-metrics/ai-metrics-light.svg">
+    <img src="./assets/ai-metrics/ai-metrics-dark.svg" alt="Chen Cai Lian AI Developer Intelligence Dashboard: identity console, live stat counters, skill network radar, contribution energy matrix, commit activity signal, and system telemetry" width="100%">
+  </picture>
 </p>
 
-<sub>Detailed activity, community, and language breakdown — regenerated daily by the <code>metrics.yml</code> workflow (lowlighter/metrics).</sub>
+<sub>A fully custom AI command-center panel — animated identity console, digital stat counters, a radar-style skill network, a neon contribution-energy matrix, a commit activity signal chart, a live activity feed, and system telemetry gauges. Built entirely from native SVG/SMIL, no default metrics template involved. Run <code>npm run ai-metrics</code> locally, or let the <code>ai-metrics.yml</code> workflow keep it in sync.</sub>
 
 ## Recent Activity
 

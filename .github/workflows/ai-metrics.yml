@@ -1,0 +1,47 @@
+name: Update AI metrics dashboard
+
+on:
+  schedule:
+    - cron: "30 2 * * *"
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  ai-metrics:
+    if: github.event.repository.name == github.repository_owner
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate AI metrics dashboard from live GitHub data
+        run: npm run ai-metrics
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Commit changes
+        run: |
+          if git diff --quiet assets/ai-metrics; then
+            echo "No AI metrics changes to commit."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/ai-metrics
+          git commit -m "chore: refresh AI developer intelligence dashboard"
+          git push

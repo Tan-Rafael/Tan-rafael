@@ -17,6 +17,8 @@
     "activity": "node scripts/update-activity.mjs",
     "dashboard": "node scripts/generate-dashboard.mjs",
     "dashboard:sample": "node scripts/generate-dashboard.mjs --sample",
+    "ai-metrics": "node scripts/generate-ai-metrics.mjs",
+    "ai-metrics:sample": "node scripts/generate-ai-metrics.mjs --sample",
     "pulse": "node scripts/generate-pulse.mjs",
     "pulse:sample": "node scripts/generate-pulse.mjs --sample",
     "validate": "node scripts/validate.mjs",
