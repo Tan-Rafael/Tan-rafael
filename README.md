@@ -90,7 +90,11 @@ I build AI systems, autonomous agents, analytics, and secure digital infrastruct
 ---
 
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0EA5E9,50:22D3EE,100:7C3AED&height=100&section=footer" width="100%" alt="Footer wave">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/footer/footer-wave-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="./assets/footer/footer-wave-light.svg">
+    <img src="./assets/footer/footer-wave-dark.svg" width="100%" alt="Footer wave">
+  </picture>
 </p>
 
 <p align="center">

@@ -71,8 +71,12 @@ function statsUrls(username) {
   };
 }
 
-function waveCapsule({ height = 120 }) {
-  return `https://capsule-render.vercel.app/api?type=waving&color=0:0EA5E9,50:22D3EE,100:7C3AED&height=${height}&section=footer`;
+function waveCapsule() {
+  return `<picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/footer/footer-wave-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="./assets/footer/footer-wave-light.svg">
+    <img src="./assets/footer/footer-wave-dark.svg" width="100%" alt="Footer wave">
+  </picture>`;
 }
 
 export async function generateProfileReadme({ config, manifest, readmePath }) {
@@ -162,7 +166,7 @@ ${activitySection}
 ---
 
 <p align="center">
-  <img src="${waveCapsule({ height: 100 })}" width="100%" alt="Footer wave">
+  ${waveCapsule()}
 </p>
 
 <p align="center">
