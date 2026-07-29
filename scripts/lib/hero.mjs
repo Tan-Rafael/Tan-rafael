@@ -81,7 +81,7 @@ function buildProfileLines(config) {
   config.links.slice(0, 2).forEach((link) => {
     lines.push({ type: "row", key: link.label, value: link.value });
   });
-  lines.push({ type: "footer", value: "signal.locked > PROFILE / BUILD / SHARE" });
+  lines.push({ type: "footer", value: "signal.locked" });
 
   return lines;
 }
@@ -326,7 +326,17 @@ export function createHeroSvg(config, colors, size, portrait) {
   const isDesktop = size === "desktop";
   const titleCenter = titlebar.x + titlebar.width / 2;
   const liveX = titlebar.x + titlebar.width - 138;
-  const cursorY = layout.system.y + profileLines.length * layout.system.lineHeight - 15;
+  const footerIndex = profileLines.length - 1;
+  const footerLine = profileLines[footerIndex];
+  const footerFontSize = layout.system.fontSize + 4;
+  const footerCharWidth = footerFontSize * 0.6;
+  const footerBegin = (0.68 + footerIndex * 0.105).toFixed(2);
+  const footerRevealDur = 0.36;
+  const cursorStartX = layout.system.x;
+  const cursorEndX = layout.system.x + footerLine.value.length * footerCharWidth + (footerLine.value.length - 1) * 0.4;
+  const cursorY = (layout.system.y + footerIndex * layout.system.lineHeight - (footerFontSize + 1)).toFixed(2);
+  const cursorHeight = footerFontSize + 2;
+  const cursorBlinkBegin = (parseFloat(footerBegin) + footerRevealDur).toFixed(2);
   const terminalUser = config.profile.username.slice(0, isDesktop ? 22 : 14);
   const footerLabel = config.focus.slice(0, 3).map((item) => item.name.toUpperCase()).join(" / ").slice(0, 64);
 
@@ -371,7 +381,7 @@ ${isDesktop ? `<circle cx="${liveX}" cy="${titlebar.y + titlebar.height / 2}" r=
 ${ambientPortrait}
 <g clip-path="url(#portrait-clip)" mask="url(#portrait-reveal)"><text class="ascii">${ascii}</text></g>
 ${system.rows}
-<rect x="${layout.system.x + 2}" y="${cursorY}" width="9" height="${layout.system.fontSize + 2}" fill="${colors.cyan}" opacity="0"><animate attributeName="opacity" values="0;0;1;0;1;0;1;0" keyTimes="0;0.03;0.06;0.32;0.5;0.68;0.84;1" dur="1.4s" begin="3.3s" repeatCount="indefinite"/></rect>
+<rect x="${cursorStartX}" y="${cursorY}" width="9" height="${cursorHeight}" fill="${colors.cyan}" opacity="0"><animate attributeName="x" from="${cursorStartX}" to="${cursorEndX.toFixed(2)}" dur="${footerRevealDur}s" begin="${footerBegin}s" fill="freeze"/><animate attributeName="opacity" values="0;1" dur="0.01s" begin="${footerBegin}s" fill="freeze"/><animate attributeName="opacity" values="1;0;1;0;1;0;1;0" keyTimes="0;0.16;0.32;0.48;0.64;0.8;0.9;1" dur="1.4s" begin="${cursorBlinkBegin}s" repeatCount="indefinite"/></rect>
 <text x="${layout.width / 2}" y="${layout.footerY}" text-anchor="middle" class="mono" font-size="10" letter-spacing="1.5" fill="${colors.muted}">${escapeXml(footerLabel)}</text>
 <rect x="0" y="-70" width="${layout.width}" height="70" fill="url(#scan)" opacity="0.72" style="mix-blend-mode:${colors.scanBlend}"><animateTransform attributeName="transform" type="translate" from="0 -70" to="0 ${layout.height + 70}" dur="4.5s" repeatCount="indefinite"/></rect>
 <rect x="3" y="3" width="${layout.width - 6}" height="${layout.height - 6}" rx="${layout.outerRadius - 2}" fill="none" stroke="url(#border)" stroke-width="2" opacity="0.76"><animate attributeName="opacity" values="0.5;0.94;0.5" dur="3.4s" repeatCount="indefinite"/></rect>
