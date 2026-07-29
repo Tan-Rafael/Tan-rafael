@@ -65,9 +65,7 @@ function typingSvgUrl(config) {
 
 function statsUrls(username) {
   return {
-    visitors: `https://komarev.com/ghpvc/?username=${username}&label=Profile%20Views&color=58a6ff&style=for-the-badge`,
-    snakeDark: `https://raw.githubusercontent.com/${username}/${username}/output/github-contribution-grid-snake-dark.svg`,
-    snakeLight: `https://raw.githubusercontent.com/${username}/${username}/output/github-contribution-grid-snake.svg`
+    visitors: `https://komarev.com/ghpvc/?username=${username}&label=Profile%20Views&color=58a6ff&style=for-the-badge`
   };
 }
 
@@ -151,15 +149,17 @@ ${techStack}
 
 <sub>Live repository, language, and contribution data — regenerated automatically. Run <code>npm run dashboard</code> locally, or let the <code>dashboard.yml</code> workflow keep it in sync.</sub>
 
-## Contribution Snake
+## Contribution Pulse
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="${stats.snakeDark}">
-    <source media="(prefers-color-scheme: light)" srcset="${stats.snakeLight}">
-    <img alt="Contribution snake animation" src="${stats.snakeDark}">
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/pulse/pulse-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="./assets/pulse/pulse-light.svg">
+    <img src="./assets/pulse/pulse-dark.svg" alt="${escapeCell(config.profile.name)} animated contribution pulse — weekly energy wave, traveling comet, and daily activity equalizer" width="100%">
   </picture>
 </p>
+
+<sub>An original animated wave (not GitHub's calendar grid) built from the same contribution data. Run <code>npm run pulse</code> locally, or let the <code>contribution-pulse.yml</code> workflow keep it in sync.</sub>
 ${activitySection}
 ---
 

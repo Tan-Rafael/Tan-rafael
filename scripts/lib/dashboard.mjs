@@ -47,10 +47,10 @@ function buildStatCards(stats, colors) {
   const margin = 14;
   const gap = 14;
   const cardWidth = (WIDTH - margin * 2 - gap * (STAT_DEFS.length - 1)) / STAT_DEFS.length;
-  const cardHeight = 96;
-  const y = 52;
+  const cardHeight = 118;
+  const y = 58;
   const accents = [colors.cyan, colors.violet, colors.blue, colors.green, colors.cyan];
-  const ringRadius = 22;
+  const ringRadius = 27;
   const circumference = 2 * Math.PI * ringRadius;
 
   const cards = STAT_DEFS.map((def, index) => {
@@ -59,18 +59,18 @@ function buildStatCards(stats, colors) {
     const pct = clamp(value / def.reference, 0.04, 1);
     const offset = circumference * (1 - pct);
     const accent = accents[index];
-    const ringCx = x + cardWidth - 38;
-    const ringCy = y + 34;
+    const ringCx = x + cardWidth - 46;
+    const ringCy = y + 43;
     const dur = (1.1 + index * 0.15).toFixed(2);
 
     return `<g>
-  <rect x="${x.toFixed(1)}" y="${y}" width="${cardWidth.toFixed(1)}" height="${cardHeight}" rx="13" fill="${colors.panel}" fill-opacity="0.42" stroke="${accent}" stroke-opacity="0.35"/>
-  <rect x="${x.toFixed(1)}" y="${y}" width="${cardWidth.toFixed(1)}" height="3" rx="1.5" fill="${accent}" opacity="0.75"/>
-  <text x="${(x + 18).toFixed(1)}" y="${(y + 42).toFixed(1)}" class="mono" font-size="27" font-weight="700" fill="${colors.primary}">${escapeXml(formatCompact(value))}</text>
-  <text x="${(x + 18).toFixed(1)}" y="${(y + 66).toFixed(1)}" class="mono" font-size="9.5" letter-spacing="1.1" fill="${colors.muted}">${def.label}</text>
-  <circle cx="${ringCx.toFixed(1)}" cy="${ringCy.toFixed(1)}" r="${ringRadius}" fill="none" stroke="${colors.muted}" stroke-width="3" opacity="0.18"/>
-  <circle cx="${ringCx.toFixed(1)}" cy="${ringCy.toFixed(1)}" r="${ringRadius}" fill="none" stroke="${accent}" stroke-width="3" stroke-linecap="round" stroke-dasharray="${circumference.toFixed(1)}" stroke-dashoffset="${circumference.toFixed(1)}" transform="rotate(-90 ${ringCx.toFixed(1)} ${ringCy.toFixed(1)})"><animate attributeName="stroke-dashoffset" from="${circumference.toFixed(1)}" to="${offset.toFixed(1)}" dur="${dur}s" begin="0.2s" fill="freeze"/></circle>
-  <circle cx="${ringCx.toFixed(1)}" cy="${(ringCy - ringRadius).toFixed(1)}" r="2" fill="${accent}"><animate attributeName="opacity" values="1;0.3;1" dur="1.6s" repeatCount="indefinite"/></circle>
+  <rect x="${x.toFixed(1)}" y="${y}" width="${cardWidth.toFixed(1)}" height="${cardHeight}" rx="14" fill="${colors.panel}" fill-opacity="0.42" stroke="${accent}" stroke-opacity="0.35"/>
+  <rect x="${x.toFixed(1)}" y="${y}" width="${cardWidth.toFixed(1)}" height="3.5" rx="1.75" fill="${accent}" opacity="0.75"/>
+  <text x="${(x + 20).toFixed(1)}" y="${(y + 52).toFixed(1)}" class="mono" font-size="35" font-weight="700" fill="${colors.primary}">${escapeXml(formatCompact(value))}</text>
+  <text x="${(x + 20).toFixed(1)}" y="${(y + 85).toFixed(1)}" class="mono" font-size="13" letter-spacing="1.1" fill="${colors.muted}">${def.label}</text>
+  <circle cx="${ringCx.toFixed(1)}" cy="${ringCy.toFixed(1)}" r="${ringRadius}" fill="none" stroke="${colors.muted}" stroke-width="3.6" opacity="0.18"/>
+  <circle cx="${ringCx.toFixed(1)}" cy="${ringCy.toFixed(1)}" r="${ringRadius}" fill="none" stroke="${accent}" stroke-width="3.6" stroke-linecap="round" stroke-dasharray="${circumference.toFixed(1)}" stroke-dashoffset="${circumference.toFixed(1)}" transform="rotate(-90 ${ringCx.toFixed(1)} ${ringCy.toFixed(1)})"><animate attributeName="stroke-dashoffset" from="${circumference.toFixed(1)}" to="${offset.toFixed(1)}" dur="${dur}s" begin="0.2s" fill="freeze"/></circle>
+  <circle cx="${ringCx.toFixed(1)}" cy="${(ringCy - ringRadius).toFixed(1)}" r="2.4" fill="${accent}"><animate attributeName="opacity" values="1;0.3;1" dur="1.6s" repeatCount="indefinite"/></circle>
 </g>`;
   }).join("\n");
 
@@ -79,11 +79,11 @@ function buildStatCards(stats, colors) {
 
 function buildLanguagePanel(stats, colors, box) {
   const languages = stats.languages.length ? stats.languages : [{ name: "N/A", color: colors.muted, share: 1 }];
-  const barX = box.x + 20;
-  const barWidth = box.width - 110;
-  const barHeight = 12;
-  const rowGap = 27;
-  const startY = box.y + 46;
+  const barX = box.x + 22;
+  const barWidth = box.width - 120;
+  const barHeight = 15;
+  const rowGap = 34;
+  const startY = box.y + 56;
 
   const rows = languages.map((language, index) => {
     const y = startY + index * rowGap;
@@ -92,15 +92,15 @@ function buildLanguagePanel(stats, colors, box) {
     const pct = Math.round(language.share * 100);
     const color = language.color || colors.cyan;
     return `<g>
-  <text x="${barX}" y="${(y - 4).toFixed(1)}" class="mono" font-size="10.5" fill="${colors.primary}">${escapeXml(language.name)}</text>
-  <text x="${(barX + barWidth).toFixed(1)}" y="${(y - 4).toFixed(1)}" text-anchor="end" class="mono" font-size="10" fill="${colors.muted}">${pct}%</text>
-  <rect x="${barX}" y="${y}" width="${barWidth.toFixed(1)}" height="${barHeight}" rx="4" fill="${colors.muted}" opacity="0.14"/>
-  <rect x="${barX}" y="${y}" width="0" height="${barHeight}" rx="4" fill="${color}" opacity="0.85"><animate attributeName="width" from="0" to="${targetWidth.toFixed(1)}" dur="${dur}s" begin="0.3s" fill="freeze"/></rect>
+  <text x="${barX}" y="${(y - 6).toFixed(1)}" class="mono" font-size="14" fill="${colors.primary}">${escapeXml(language.name)}</text>
+  <text x="${(barX + barWidth).toFixed(1)}" y="${(y - 6).toFixed(1)}" text-anchor="end" class="mono" font-size="13" fill="${colors.muted}">${pct}%</text>
+  <rect x="${barX}" y="${y}" width="${barWidth.toFixed(1)}" height="${barHeight}" rx="5" fill="${colors.muted}" opacity="0.14"/>
+  <rect x="${barX}" y="${y}" width="0" height="${barHeight}" rx="5" fill="${color}" opacity="0.85"><animate attributeName="width" from="0" to="${targetWidth.toFixed(1)}" dur="${dur}s" begin="0.3s" fill="freeze"/></rect>
 </g>`;
   }).join("\n");
 
-  return `<text x="${box.x + 20}" y="${box.y + 26}" class="panel-title">LANGUAGE.DISTRIBUTION</text>
-<rect x="${box.x}" y="${box.y}" width="${box.width}" height="${box.height}" rx="13" fill="${colors.panel}" fill-opacity="0.4" stroke="${colors.blue}" stroke-opacity="0.3"/>
+  return `<text x="${box.x + 22}" y="${box.y + 32}" class="panel-title">LANGUAGE.DISTRIBUTION</text>
+<rect x="${box.x}" y="${box.y}" width="${box.width}" height="${box.height}" rx="14" fill="${colors.panel}" fill-opacity="0.4" stroke="${colors.blue}" stroke-opacity="0.3"/>
 ${rows}`;
 }
 
@@ -115,11 +115,11 @@ function colorForCount(count, maxCount, colors) {
 function buildHeatmapPanel(stats, colors, box) {
   const grid = stats.dayGrid.length ? stats.dayGrid : [[0]];
   const maxCount = grid.reduce((max, week) => Math.max(max, ...week), 1);
-  const cell = 9;
-  const cellGap = 2.4;
-  const originX = box.x + 20;
-  const originY = box.y + 40;
-  const usableWidth = box.width - 40;
+  const cell = 10.5;
+  const cellGap = 2.8;
+  const originX = box.x + 22;
+  const originY = box.y + 48;
+  const usableWidth = box.width - 44;
   const columns = Math.min(grid.length, Math.floor(usableWidth / (cell + cellGap)));
   const trimmed = grid.slice(grid.length - columns);
 
@@ -129,25 +129,25 @@ function buildHeatmapPanel(stats, colors, box) {
       const y = originY + dayIndex * (cell + cellGap);
       const fill = colorForCount(count, maxCount, colors);
       const opacity = count > 0 ? clamp(0.35 + (count / maxCount) * 0.65, 0.35, 1) : 0.16;
-      return `<rect x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="${cell}" height="${cell}" rx="1.6" fill="${fill}" opacity="${opacity.toFixed(2)}"/>`;
+      return `<rect x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="${cell}" height="${cell}" rx="2" fill="${fill}" opacity="${opacity.toFixed(2)}"/>`;
     }).join("");
     const begin = (weekIndex * 0.012).toFixed(3);
     return `<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="${begin}s" fill="freeze"/>${squares}</g>`;
   }).join("\n");
 
-  return `<text x="${box.x + 20}" y="${box.y + 26}" class="panel-title">CONTRIBUTION.HEATMAP</text>
-<rect x="${box.x}" y="${box.y}" width="${box.width}" height="${box.height}" rx="13" fill="${colors.panel}" fill-opacity="0.4" stroke="${colors.cyan}" stroke-opacity="0.3"/>
+  return `<text x="${box.x + 22}" y="${box.y + 32}" class="panel-title">CONTRIBUTION.HEATMAP</text>
+<rect x="${box.x}" y="${box.y}" width="${box.width}" height="${box.height}" rx="14" fill="${colors.panel}" fill-opacity="0.4" stroke="${colors.cyan}" stroke-opacity="0.3"/>
 ${weeks}
-<text x="${(box.x + box.width - 20).toFixed(1)}" y="${(box.y + box.height - 12).toFixed(1)}" text-anchor="end" class="mono" font-size="9.5" fill="${colors.muted}">${stats.contributions.toLocaleString("en-US")} contributions tracked</text>`;
+<text x="${(box.x + box.width - 22).toFixed(1)}" y="${(box.y + box.height - 16).toFixed(1)}" text-anchor="end" class="mono" font-size="12.5" fill="${colors.muted}">${stats.contributions.toLocaleString("en-US")} contributions tracked</text>`;
 }
 
 function buildAreaChart(stats, colors, box) {
   const totals = stats.weeklyTotals.length ? stats.weeklyTotals : [0];
   const maxTotal = Math.max(...totals, 1);
-  const chartX = box.x + 20;
-  const chartWidth = box.width - 40;
-  const chartTop = box.y + 34;
-  const chartHeight = box.height - 58;
+  const chartX = box.x + 22;
+  const chartWidth = box.width - 44;
+  const chartTop = box.y + 42;
+  const chartHeight = box.height - 68;
   const stepX = chartWidth / Math.max(1, totals.length - 1);
 
   const points = totals.map((value, index) => {
@@ -160,11 +160,11 @@ function buildAreaChart(stats, colors, box) {
   const areaPath = `${linePath} L ${(chartX + chartWidth).toFixed(1)} ${(chartTop + chartHeight).toFixed(1)} L ${chartX.toFixed(1)} ${(chartTop + chartHeight).toFixed(1)} Z`;
   const approxLength = Math.round(chartWidth * 1.4 + chartHeight * 2);
 
-  return `<text x="${box.x + 20}" y="${box.y + 26}" class="panel-title">WEEKLY.ACTIVITY.SIGNAL</text>
-<rect x="${box.x}" y="${box.y}" width="${box.width}" height="${box.height}" rx="13" fill="${colors.panel}" fill-opacity="0.4" stroke="${colors.green}" stroke-opacity="0.3"/>
+  return `<text x="${box.x + 22}" y="${box.y + 32}" class="panel-title">WEEKLY.ACTIVITY.SIGNAL</text>
+<rect x="${box.x}" y="${box.y}" width="${box.width}" height="${box.height}" rx="14" fill="${colors.panel}" fill-opacity="0.4" stroke="${colors.green}" stroke-opacity="0.3"/>
 <path d="${areaPath}" fill="url(#area-fill)" opacity="0.9"/>
-<path d="${linePath}" fill="none" stroke="${colors.cyan}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="${approxLength}" stroke-dashoffset="${approxLength}"><animate attributeName="stroke-dashoffset" from="${approxLength}" to="0" dur="2.1s" begin="0.2s" fill="freeze"/></path>
-<rect x="${chartX.toFixed(1)}" y="${chartTop.toFixed(1)}" width="26" height="${chartHeight.toFixed(1)}" fill="url(#chart-scan)" opacity="0.7"><animateTransform attributeName="transform" type="translate" from="0 0" to="${(chartWidth - 26).toFixed(1)} 0" dur="3.6s" repeatCount="indefinite"/></rect>`;
+<path d="${linePath}" fill="none" stroke="${colors.cyan}" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="${approxLength}" stroke-dashoffset="${approxLength}"><animate attributeName="stroke-dashoffset" from="${approxLength}" to="0" dur="2.1s" begin="0.2s" fill="freeze"/></path>
+<rect x="${chartX.toFixed(1)}" y="${chartTop.toFixed(1)}" width="28" height="${chartHeight.toFixed(1)}" fill="url(#chart-scan)" opacity="0.7"><animateTransform attributeName="transform" type="translate" from="0 0" to="${(chartWidth - 28).toFixed(1)} 0" dur="3.6s" repeatCount="indefinite"/></rect>`;
 }
 
 function buildFooterStatus(stats, colors, y) {
@@ -175,21 +175,21 @@ function buildFooterStatus(stats, colors, y) {
     "SYSTEM STATUS: LIVE"
   ];
   const text = items.join("   //   ");
-  return `<circle cx="30" cy="${y - 3.5}" r="3.5" fill="${colors.green}"><animate attributeName="opacity" values="1;0.25;1" dur="1.3s" repeatCount="indefinite"/></circle>
-<text x="46" y="${y}" class="mono" font-size="10" letter-spacing="0.6" fill="${colors.muted}">${escapeXml(text)}</text>`;
+  return `<circle cx="32" cy="${y - 4.5}" r="4.2" fill="${colors.green}"><animate attributeName="opacity" values="1;0.25;1" dur="1.3s" repeatCount="indefinite"/></circle>
+<text x="50" y="${y}" class="mono" font-size="13" letter-spacing="0.6" fill="${colors.muted}">${escapeXml(text)}</text>`;
 }
 
 function createDashboardSvg(config, colors, stats) {
   const { markup: statCards, bottom: statsBottom } = buildStatCards(stats, colors);
-  const gap = 14;
+  const gap = 16;
   const panelsY = statsBottom + gap;
-  const panelsHeight = 218;
+  const panelsHeight = 260;
   const languageBox = { x: 14, y: panelsY, width: 462, height: panelsHeight };
   const heatmapBox = { x: 14 + 462 + gap, y: panelsY, width: WIDTH - 14 - (14 + 462 + gap), height: panelsHeight };
   const chartY = panelsY + panelsHeight + gap;
-  const chartBox = { x: 14, y: chartY, width: WIDTH - 28, height: 158 };
-  const footerY = chartY + chartBox.height + 34;
-  const height = footerY + 24;
+  const chartBox = { x: 14, y: chartY, width: WIDTH - 28, height: 178 };
+  const footerY = chartY + chartBox.height + 40;
+  const height = footerY + 26;
   const username = escapeXml(config.profile.username);
 
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${WIDTH}" height="${height}" viewBox="0 0 ${WIDTH} ${height}" role="img" aria-labelledby="title description">
@@ -203,17 +203,17 @@ function createDashboardSvg(config, colors, stats) {
   <pattern id="scanlines" width="4" height="4" patternUnits="userSpaceOnUse"><rect width="4" height="1" fill="${colors.cyan}" opacity="0.05"/></pattern>
   <style>
     .mono { font-family: 'Courier New', Consolas, monospace; }
-    .panel-title { font-family: 'Courier New', Consolas, monospace; font-size: 11px; letter-spacing: 2px; fill: ${colors.blue}; opacity: 0.78; }
-    .live-label { font-family: 'Courier New', Consolas, monospace; font-size: 10px; letter-spacing: 1px; fill: ${colors.red}; }
+    .panel-title { font-family: 'Courier New', Consolas, monospace; font-size: 14px; letter-spacing: 2.2px; fill: ${colors.blue}; opacity: 0.82; }
+    .live-label { font-family: 'Courier New', Consolas, monospace; font-size: 13px; letter-spacing: 1px; fill: ${colors.red}; }
   </style>
 </defs>
 <rect width="${WIDTH}" height="${height}" rx="${OUTER_RADIUS}" fill="url(#background)"/>
 <rect width="${WIDTH}" height="${height}" rx="${OUTER_RADIUS}" fill="url(#scanlines)"/>
 ${buildAmbientLayer(colors, WIDTH, height)}
-<rect x="3" y="3" width="${WIDTH - 6}" height="34" rx="16" fill="${colors.panel}" fill-opacity="0.84"/>
-<circle cx="24" cy="20" r="5" fill="#EF4444"/><circle cx="42" cy="20" r="5" fill="#F59E0B"/><circle cx="60" cy="20" r="5" fill="${colors.green}"/>
-<text x="${WIDTH / 2}" y="25" text-anchor="middle" class="mono" font-size="12" letter-spacing="0.5" fill="${colors.muted}">${username}@dashboard ~ % ./analyze --github --live</text>
-<circle cx="${WIDTH - 141}" cy="20" r="4" fill="${colors.red}"><animate attributeName="opacity" values="1;0.15;1" dur="1.1s" repeatCount="indefinite"/></circle><text x="${WIDTH - 131}" y="24" class="live-label">ANALYZING</text>
+<rect x="3" y="3" width="${WIDTH - 6}" height="40" rx="16" fill="${colors.panel}" fill-opacity="0.84"/>
+<circle cx="26" cy="23" r="5.5" fill="#EF4444"/><circle cx="46" cy="23" r="5.5" fill="#F59E0B"/><circle cx="66" cy="23" r="5.5" fill="${colors.green}"/>
+<text x="${WIDTH / 2}" y="28" text-anchor="middle" class="mono" font-size="15" letter-spacing="0.5" fill="${colors.muted}">${username}@dashboard ~ % ./analyze --github --live</text>
+<circle cx="${WIDTH - 168}" cy="23" r="4.6" fill="${colors.red}"><animate attributeName="opacity" values="1;0.15;1" dur="1.1s" repeatCount="indefinite"/></circle><text x="${WIDTH - 156}" y="28" class="live-label">ANALYZING</text>
 ${statCards}
 ${buildLanguagePanel(stats, colors, languageBox)}
 ${buildHeatmapPanel(stats, colors, heatmapBox)}
