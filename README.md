@@ -19,6 +19,18 @@
   <img alt="Status" src="https://img.shields.io/badge/status-online-39D353?style=for-the-badge&logo=statuspage&logoColor=white">
 </p>
 
+## AI Command Center — Live
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/cyber/ai-command-center-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="./assets/cyber/ai-command-center-light.svg">
+    <img src="./assets/cyber/ai-command-center-dark.svg" alt="AI Command Center: threat radar, AI terminal, live system metrics, and global network operations" width="100%">
+  </picture>
+</p>
+
+<sub>Radar sweep, terminal boot sequence, gauge telemetry, and network map all animate natively via SVG/SMIL — no external scripts required, so it renders the same way GitHub displays it to every visitor.</sub>
+
 ## About Me
 
 I build AI systems and next-generation digital infrastructure.
