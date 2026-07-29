@@ -1,0 +1,47 @@
+name: Update profile panels
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - "profile.config.json"
+      - "scripts/lib/profile-panels.mjs"
+      - "scripts/generate-profile-panels.mjs"
+
+permissions:
+  contents: write
+
+jobs:
+  profile-panels:
+    if: github.event.repository.name == github.repository_owner
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate profile console panels
+        run: npm run profile-panels
+
+      - name: Commit changes
+        run: |
+          if git diff --quiet assets/profile; then
+            echo "No profile panel changes to commit."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/profile
+          git commit -m "chore: refresh profile console panels"
+          git push

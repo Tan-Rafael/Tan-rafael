@@ -31,38 +31,17 @@
 
 <sub>Radar sweep, terminal boot sequence, gauge telemetry, and network map all animate natively via SVG/SMIL — no external scripts required, so it renders the same way GitHub displays it to every visitor.</sub>
 
-## About Me
-
-I build AI systems and next-generation digital infrastructure.
-
-My work focuses on Anlytix AI and autonomous, real-time platforms.
-
-## Current Focus
-
-| Area | What I am exploring |
-| --- | --- |
-| **AI Agents** | Building autonomous systems for reasoning, planning, and tool use. |
-| **Financial Analytics** | Building AI analytics for global financial markets. |
-| **Enterprise Software** | Building scalable and secure enterprise applications. |
-
-## Featured Work
-
-| Project | Focus | Why it matters |
-| --- | --- | --- |
-| [**Analisis-Asset**](https://github.com/Tan-Rafael/Analisis-Asset) | AI Analytics | AI analytics for financial data and autonomous workflows. |
-| [**Anlytix AI**](https://github.com/Tan-Rafael/Anlytix) | Financial AI | AI-powered analytics for global financial markets. |
-
-## Research Direction
-
-I build AI systems, autonomous agents, analytics, and secure digital infrastructure.
-
-## Tech Stack
+## Profile Console — About, Focus, Work, Research & Stack
 
 <p align="center">
-  <img src="https://skillicons.dev/icons?i=javascript,typescript,html5,css3,python,laravel,php,nodejs,restapi,sql,git,docker,aiagents&theme=dark" alt="Tech stack icons">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/profile/profile-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="./assets/profile/profile-light.svg">
+    <img src="./assets/profile/profile-dark.svg" alt="Chen Cai Lian profile console: about me, current focus, featured work, research direction, and tech stack, rendered as an animated cyber terminal" width="100%">
+  </picture>
 </p>
 
-`JavaScript` · `TypeScript` · `HTML5` · `CSS3` · `Python` · `Laravel` · `PHP` · `Node.js` · `REST API` · `SQL` · `Git` · `Docker` · `AI Agents`
+<sub>Typed-terminal "About Me" and "Research Direction" blocks, glowing focus-area cards, animated project cards, and pulsing tech-stack chips — all native SVG/SMIL, themed to match the AI Command Center above. Edit <code>profile.config.json</code>, then run <code>npm run profile-panels</code> (or let the <code>profile-panels.yml</code> workflow keep it in sync).
 
 ## GitHub Stats
 
