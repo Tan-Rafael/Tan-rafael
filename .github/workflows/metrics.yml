@@ -15,10 +15,16 @@ jobs:
   metrics:
     runs-on: ubuntu-latest
     steps:
+      # NOTE: lowlighter/metrics requires a real GitHub Personal Access Token,
+      # not the default GITHUB_TOKEN. Create one at:
+      #   https://github.com/settings/tokens/new
+      # with scopes: public_repo, read:user
+      # then add it as a repository secret named METRICS_TOKEN:
+      #   Settings -> Secrets and variables -> Actions -> New repository secret
       - uses: lowlighter/metrics@latest
         with:
           filename: metrics.svg
-          token: ${{ secrets.METRICS_TOKEN }}
+          token: ${{ secrets.METRICS_TOKEN || secrets.GITHUB_TOKEN }}
           user: ${{ github.repository_owner }}
           template: classic
           base: header, activity, community, repositories, metadata
@@ -28,3 +34,4 @@ jobs:
           plugin_languages_details: bytes-size
           plugin_isocalendar: yes
           plugin_isocalendar_duration: full-year
+          plugins_errors_fatal: no
