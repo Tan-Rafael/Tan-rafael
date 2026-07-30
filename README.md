@@ -104,12 +104,12 @@
 <summary>View as text (with clickable links)</summary>
 
 <!-- AUTO:ACTIVITY:START -->
-- Jul 30, 2026: pushed 1 commit to [Tan-Rafael/Tan-Rafael](https://github.com/Tan-Rafael/Tan-Rafael).
-- Jul 29, 2026: created a branch in [Tan-Rafael/Tan-Rafael](https://github.com/Tan-Rafael/Tan-Rafael).
-- Jul 29, 2026: pushed 1 commit to [Tan-Rafael/Tan-Rafael](https://github.com/Tan-Rafael/Tan-Rafael).
-- Jul 28, 2026: created a branch in [Tan-Rafael/Tan-Rafael](https://github.com/Tan-Rafael/Tan-Rafael).
+- Jul 30, 2026: pushed 1 commit to [Tan-Rafael/Tan-rafael](https://github.com/Tan-Rafael/Tan-rafael).
+- Jul 29, 2026: pushed 1 commit to [Tan-Rafael/Tan-rafael](https://github.com/Tan-Rafael/Tan-rafael).
+- Jul 29, 2026: created a branch in [Tan-Rafael/Tan-rafael](https://github.com/Tan-Rafael/Tan-rafael).
+- Jul 28, 2026: pushed 1 commit to [Tan-Rafael/Tan-rafael](https://github.com/Tan-Rafael/Tan-rafael).
+- Jul 28, 2026: created a branch in [Tan-Rafael/Tan-rafael](https://github.com/Tan-Rafael/Tan-rafael).
 - Jul 18, 2026: created a branch in [Tan-Rafael/Anlytix](https://github.com/Tan-Rafael/Anlytix).
-- Jul 14, 2026: created a branch in [Tan-Rafael/Analisis-Asset](https://github.com/Tan-Rafael/Analisis-Asset).
 <!-- AUTO:ACTIVITY:END -->
 
 </details>
