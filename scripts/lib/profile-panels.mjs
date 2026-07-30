@@ -1,7 +1,7 @@
 import { mkdir, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { escapeXml } from "./xml.mjs";
-import { paletteDefinitions } from "./hero.mjs";
+import { paletteDefinitions } from "./palette.mjs";
 
 const WIDTH = 1180;
 const OUTER_RADIUS = 18;

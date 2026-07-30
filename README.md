@@ -43,6 +43,15 @@
 
 <sub>Typed-terminal "About Me" and "Research Direction" blocks, glowing focus-area cards, animated project cards, and pulsing tech-stack chips — all native SVG/SMIL, themed to match the AI Command Center above. Edit <code>profile.config.json</code>, then run <code>npm run profile-panels</code> (or let the <code>profile-panels.yml</code> workflow keep it in sync).
 
+<p align="center"><sub>Open a featured project directly:</sub></p>
+
+<!-- AUTO:PROJECT_LINKS:START -->
+<p align="center">
+  <a href="https://github.com/Tan-Rafael/Analisis-Asset"><img alt="Analisis-Asset" src="https://img.shields.io/badge/Analisis--Asset-Open_Repository-00F0FF?style=for-the-badge&logo=github&logoColor=white"></a>
+  <a href="https://github.com/Tan-Rafael/Anlytix"><img alt="Anlytix AI" src="https://img.shields.io/badge/Anlytix_AI-Open_Repository-A855F7?style=for-the-badge&logo=github&logoColor=white"></a>
+</p>
+<!-- AUTO:PROJECT_LINKS:END -->
+
 ## GitHub Stats
 
 <p align="center">
@@ -81,14 +90,29 @@
 
 ## Recent Activity
 
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/activity/activity-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="./assets/activity/activity-light.svg">
+    <img src="./assets/activity/activity-dark.svg" alt="Chen Cai Lian recent activity feed: latest pushes, branches, pull requests, and issues across repositories, rendered as an animated live-feed terminal" width="100%">
+  </picture>
+</p>
+
+<sub>A live-feed terminal panel — animated status dots, tagged event types, and staggered row reveals — themed to match the rest of the console. Run <code>npm run activity</code> locally, or let the <code>update-activity.yml</code> workflow keep it in sync.</sub>
+
+<details>
+<summary>View as text (with clickable links)</summary>
+
 <!-- AUTO:ACTIVITY:START -->
-- Jul 29, 2026: pushed 1 commit to [Tan-Rafael/Tan-rafael](https://github.com/Tan-Rafael/Tan-rafael).
-- Jul 29, 2026: created a branch in [Tan-Rafael/Tan-rafael](https://github.com/Tan-Rafael/Tan-rafael).
-- Jul 28, 2026: pushed 1 commit to [Tan-Rafael/Tan-rafael](https://github.com/Tan-Rafael/Tan-rafael).
-- Jul 28, 2026: created a branch in [Tan-Rafael/Tan-rafael](https://github.com/Tan-Rafael/Tan-rafael).
+- Jul 30, 2026: pushed 1 commit to [Tan-Rafael/Tan-Rafael](https://github.com/Tan-Rafael/Tan-Rafael).
+- Jul 29, 2026: created a branch in [Tan-Rafael/Tan-Rafael](https://github.com/Tan-Rafael/Tan-Rafael).
+- Jul 29, 2026: pushed 1 commit to [Tan-Rafael/Tan-Rafael](https://github.com/Tan-Rafael/Tan-Rafael).
+- Jul 28, 2026: created a branch in [Tan-Rafael/Tan-Rafael](https://github.com/Tan-Rafael/Tan-Rafael).
 - Jul 18, 2026: created a branch in [Tan-Rafael/Anlytix](https://github.com/Tan-Rafael/Anlytix).
 - Jul 14, 2026: created a branch in [Tan-Rafael/Analisis-Asset](https://github.com/Tan-Rafael/Analisis-Asset).
 <!-- AUTO:ACTIVITY:END -->
+
+</details>
 
 ---
 

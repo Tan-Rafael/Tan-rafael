@@ -1,8 +1,11 @@
 import { readFile, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
+import { buildProjectLinksMarkdown } from "./project-links.mjs";
 
 export const ACTIVITY_START = "<!-- AUTO:ACTIVITY:START -->";
 export const ACTIVITY_END = "<!-- AUTO:ACTIVITY:END -->";
+export const PROJECT_LINKS_START = "<!-- AUTO:PROJECT_LINKS:START -->";
+export const PROJECT_LINKS_END = "<!-- AUTO:PROJECT_LINKS:END -->";
 
 function escapeCell(value) {
   return String(value).replaceAll("|", "\\|").replaceAll("\n", " ");
@@ -81,7 +84,7 @@ export async function generateProfileReadme({ config, manifest, readmePath }) {
   const existingActivity = await readExistingActivity(readmePath);
   const activity = existingActivity || "_Recent public activity will appear here after the workflow runs._";
   const activitySection = config.activity.enabled
-    ? `\n## Recent Activity\n\n${ACTIVITY_START}\n${activity}\n${ACTIVITY_END}\n`
+    ? `\n## Recent Activity\n\n<p align="center">\n  <picture>\n    <source media="(prefers-color-scheme: dark)" srcset="./assets/activity/activity-dark.svg">\n    <source media="(prefers-color-scheme: light)" srcset="./assets/activity/activity-light.svg">\n    <img src="./assets/activity/activity-dark.svg" alt="${escapeCell(config.profile.name)} recent activity feed" width="100%">\n  </picture>\n</p>\n\n<sub>A live-feed terminal panel — animated status dots, tagged event types, and staggered row reveals — themed to match the rest of the console. Run <code>npm run activity</code> locally, or let the <code>update-activity.yml</code> workflow keep it in sync.</sub>\n\n<details>\n<summary>View as text (with clickable links)</summary>\n\n${ACTIVITY_START}\n${activity}\n${ACTIVITY_END}\n\n</details>\n`
     : "";
   const techStack = config.techStack.map((item) => `\`${item}\``).join(" · ");
   const about = config.profile.about.join("\n\n");
@@ -124,6 +127,10 @@ ${renderFocus(config.focus)}
 ## Featured Work
 
 ${renderProjects(config.projects)}
+
+${PROJECT_LINKS_START}
+${buildProjectLinksMarkdown(config)}
+${PROJECT_LINKS_END}
 
 ## Research Direction
 

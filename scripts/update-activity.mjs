@@ -4,8 +4,10 @@ import { readFile, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { loadConfig, repositoryRoot } from "./lib/config.mjs";
 import { ACTIVITY_END, ACTIVITY_START } from "./lib/readme.mjs";
+import { classifyEvent, generateActivityAssets } from "./lib/activity-panel.mjs";
 
 const dryRun = process.argv.includes("--dry-run");
+const useSample = process.argv.includes("--sample");
 const token = process.env.GITHUB_TOKEN || process.env.GH_TOKEN;
 
 function formatDate(value) {
@@ -14,30 +16,25 @@ function formatDate(value) {
 
 function eventToLine(event) {
   const repo = event.repo?.name;
-  if (!repo) return null;
+  const info = classifyEvent(event);
+  if (!repo || !info) return null;
   const date = formatDate(event.created_at);
   const repoLink = `https://github.com/${repo}`;
+  const repoLabel = repo.split("/")[1] || repo;
+  return { line: `- ${date}: ${info.text.replace(repoLabel, `[${repo}](${repoLink})`)}.`, item: { kind: info.kind, text: info.text, date } };
+}
 
-  if (event.type === "PushEvent") {
-    const commits = event.payload?.commits?.length || 1;
-    return `- ${date}: pushed ${commits} ${commits === 1 ? "commit" : "commits"} to [${repo}](${repoLink}).`;
-  }
-  if (event.type === "CreateEvent") {
-    return `- ${date}: created a ${event.payload?.ref_type || "resource"} in [${repo}](${repoLink}).`;
-  }
-  if (event.type === "PullRequestEvent") {
-    const action = event.payload?.action || "updated";
-    const number = event.payload?.pull_request?.number;
-    const url = event.payload?.pull_request?.html_url || repoLink;
-    return `- ${date}: ${action} pull request${number ? ` [#${number}](${url})` : ""} in [${repo}](${repoLink}).`;
-  }
-  if (event.type === "IssuesEvent") {
-    const action = event.payload?.action || "updated";
-    const number = event.payload?.issue?.number;
-    const url = event.payload?.issue?.html_url || repoLink;
-    return `- ${date}: ${action} issue${number ? ` [#${number}](${url})` : ""} in [${repo}](${repoLink}).`;
-  }
-  return null;
+function sampleEvents() {
+  const now = Date.now();
+  const day = 86400000;
+  return [
+    { type: "PushEvent", created_at: new Date(now).toISOString(), repo: { name: "Tan-Rafael/Tan-Rafael" }, payload: { commits: [{}] } },
+    { type: "CreateEvent", created_at: new Date(now - day).toISOString(), repo: { name: "Tan-Rafael/Tan-Rafael" }, payload: { ref_type: "branch" } },
+    { type: "PushEvent", created_at: new Date(now - day).toISOString(), repo: { name: "Tan-Rafael/Tan-Rafael" }, payload: { commits: [{}] } },
+    { type: "CreateEvent", created_at: new Date(now - 2 * day).toISOString(), repo: { name: "Tan-Rafael/Tan-Rafael" }, payload: { ref_type: "branch" } },
+    { type: "CreateEvent", created_at: new Date(now - 12 * day).toISOString(), repo: { name: "Tan-Rafael/Anlytix" }, payload: { ref_type: "branch" } },
+    { type: "CreateEvent", created_at: new Date(now - 16 * day).toISOString(), repo: { name: "Tan-Rafael/Analisis-Asset" }, payload: { ref_type: "branch" } }
+  ];
 }
 
 function replaceActivity(readme, content) {
@@ -56,14 +53,26 @@ try {
     process.exit(0);
   }
 
-  const headers = { Accept: "application/vnd.github+json", "User-Agent": `${config.profile.username}-profile-readme` };
-  if (token) headers.Authorization = `Bearer ${token}`;
-  const response = await fetch(`https://api.github.com/users/${config.profile.username}/events/public?per_page=50`, { headers });
-  if (!response.ok) throw new Error(`GitHub API returned ${response.status} ${response.statusText}.`);
+  let events;
+  if (useSample) {
+    events = sampleEvents();
+  } else {
+    const headers = { Accept: "application/vnd.github+json", "User-Agent": `${config.profile.username}-profile-readme` };
+    if (token) headers.Authorization = `Bearer ${token}`;
+    const response = await fetch(`https://api.github.com/users/${config.profile.username}/events/public?per_page=50`, { headers });
+    if (!response.ok) throw new Error(`GitHub API returned ${response.status} ${response.statusText}.`);
+    events = await response.json();
+  }
 
-  const events = await response.json();
-  const lines = events.map(eventToLine).filter(Boolean).filter((line, index, all) => all.indexOf(line) === index).slice(0, config.activity.limit);
+  const results = events.map(eventToLine).filter(Boolean);
+  const seen = new Set();
+  const deduped = results.filter((result) => (seen.has(result.line) ? false : (seen.add(result.line), true))).slice(0, config.activity.limit);
+  const lines = deduped.map((result) => result.line);
+  const items = deduped.map((result) => result.item);
   const content = lines.length ? lines.join("\n") : "_No recent public activity was found._";
+
+  await generateActivityAssets({ config, items, outputDirectory: resolve(repositoryRoot, "assets/activity") });
+
   const readmePath = resolve(repositoryRoot, "README.md");
   const readme = await readFile(readmePath, "utf8");
   const nextReadme = replaceActivity(readme, content);
@@ -73,7 +82,7 @@ try {
     console.log("\nDry run complete. README.md was not modified.");
   } else {
     await writeFile(readmePath, nextReadme);
-    console.log("README.md activity block updated.");
+    console.log(`README.md activity block and assets/activity panel updated${useSample ? " (sample data)" : ""}.`);
   }
 } catch (error) {
   console.error(error.message);

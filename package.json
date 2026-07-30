@@ -15,6 +15,7 @@
     "generate:readme": "node scripts/generate-readme.mjs",
     "generate:demo": "node scripts/generate-demo.mjs",
     "activity": "node scripts/update-activity.mjs",
+    "activity:sample": "node scripts/update-activity.mjs --sample",
     "dashboard": "node scripts/generate-dashboard.mjs",
     "dashboard:sample": "node scripts/generate-dashboard.mjs --sample",
     "ai-metrics": "node scripts/generate-ai-metrics.mjs",
